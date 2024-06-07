@@ -1,11 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useRef } from 'react';
+import { CameraView, useCameraPermissions } from 'expo-camera'
+import { StyleSheet, View, Button } from 'react-native';
 
 export default function App() {
+  const camref = useRef(null);
+  const [permission, requestPermission] = useCameraPermissions();
+
+  const ready = async() => {
+    const camera = camref.current as unknown as CameraView;
+    const data = await camera.takePictureAsync();
+    console.log(data);
+  };
+
   return (
+    permission?.granted ?
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <CameraView style={styles.camera} ref={camref} onCameraReady={ready}></CameraView>
+    </View>
+    :
+    <View style={styles.container}>
+      <Button onPress={requestPermission} title='Grant Permission'></Button>
     </View>
   );
 }
@@ -17,4 +31,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  camera: {
+    height: 500,
+    width: 300
+  }
 });
