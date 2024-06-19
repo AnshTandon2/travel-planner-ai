@@ -20,15 +20,18 @@ function Form(props: MyForm) {
         Message:
         <input type="text" name="message" />
       </label>
-      <button type="submit" onClick={() =>
-        props.value(
-          {
+      <button
+        type="submit"
+        onClick={() =>
+          props.value({
             name: "",
             email: "",
-            message: ""
-          }
-        )
-      }>Submit</button>
+            message: "",
+          })
+        }
+      >
+        Submit
+      </button>
     </form>
   );
 }
