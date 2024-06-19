@@ -2,17 +2,10 @@ import React from "react";
 import { FormProps } from "../types";
 
 interface MyForm {
-  value: MyForm;
-  // name: MyForm;
-  // email: MyForm;
-  // message: MyForm;
-
-  // name: MyForm["name"],
-  // email: MyForm["email"],
-  // message:
+  value: (setInput: FormProps) => void;
 }
 
-function Form(props: FormProps) {
+function Form(props: MyForm) {
   return (
     <form>
       <label>
@@ -27,7 +20,15 @@ function Form(props: FormProps) {
         Message:
         <input type="text" name="message" />
       </label>
-      <button type="submit">Submit</button>
+      <button type="submit" onClick={() =>
+        props.value(
+          {
+            name: "",
+            email: "",
+            message: ""
+          }
+        )
+      }>Submit</button>
     </form>
   );
 }

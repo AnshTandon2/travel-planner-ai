@@ -1,21 +1,22 @@
 import React from "react";
 import NavBar from "./components/NavBar";
-import useState from "react";
+import { useState } from "react";
 import Form from "./components/Form";
 import logo from "./logo.svg";
 import "./App.css";
 
 function App() { 
+  const [userInput, setInput] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
   return (
     <div className="App">
       <NavBar />
       <Form
-        value={{
-          name: "",
-          email: "",
-          message: "",
-        }}
+        value = {setInput}
       />
 
       {/* <header className="App-header">

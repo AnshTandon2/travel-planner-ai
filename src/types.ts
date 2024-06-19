@@ -5,4 +5,5 @@ type FormProps = {
   email: string;
   message: string;
 };
+
 export type { FormProps };
