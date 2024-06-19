@@ -5,7 +5,7 @@ import Form from "./components/Form";
 import logo from "./logo.svg";
 import "./App.css";
 
-function App() { 
+function App() {
   const [userInput, setInput] = useState({
     name: "",
     email: "",
@@ -15,9 +15,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Form
-        value = {setInput}
-      />
+      <Form value={setInput} />
 
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
