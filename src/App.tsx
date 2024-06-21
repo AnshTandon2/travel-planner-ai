@@ -14,8 +14,9 @@ function App() {
 
   return (
     //you can only put your code inside the one div within any return you have and you can have multiple class names
+    // Leisure Voyage Travel --> LVTravel
     <div className="App">
-      <h1 className="text-green-300 flex justify-center">Main Application</h1>
+      <h1 className="text-green-100 flex justify-center">LVTravel</h1>
       <NavBar />
       <Form value={setInput} />
 
