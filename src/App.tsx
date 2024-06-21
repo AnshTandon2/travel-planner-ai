@@ -13,7 +13,9 @@ function App() {
   });
 
   return (
+    //you can only put your code inside the one div within any return you have and you can have multiple class names
     <div className="App">
+      <h1 className="text-green-300 flex justify-center">Main Application</h1>
       <NavBar />
       <Form value={setInput} />
 
@@ -33,6 +35,7 @@ function App() {
       </header> */}
     </div>
   );
+  console.log(userInput);
 }
 
 export default App;

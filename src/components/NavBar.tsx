@@ -2,8 +2,23 @@ import { useEffect, useState } from "react";
 import React from "react";
 // need to import from azure (to autehtnica user log in)
 
-class NavBar extends React.Component {}
-
+function NavBar() {
+  return (
+    <nav>
+      <ul>
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  );
+}
 // const NavBar = () => {
 //   const [userLoggedIn, setUserLoggedIn] = useState(false);
 

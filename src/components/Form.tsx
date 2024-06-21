@@ -21,14 +21,16 @@ function Form(props: MyForm) {
         <input type="text" name="message" />
       </label>
       <button
-        type="submit"
-        onClick={() =>
+        type="button" // type to prevent automatic reload
+        onClick={() => {
           props.value({
             name: "",
             email: "",
             message: "",
-          })
-        }
+          });
+
+          console.log("form submitted");
+        }}
       >
         Submit
       </button>
@@ -46,5 +48,7 @@ function Form(props: MyForm) {
 //     };
 //   }
 // }
+
+//With html forms you need to prevent default behavior of reloading
 
 export default Form;
