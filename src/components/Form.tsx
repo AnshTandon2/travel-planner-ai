@@ -23,6 +23,7 @@ function Form(props: MyForm) {
       <button
         type="button" // type to prevent automatic reload
         onClick={() => {
+          //pass prop values into llm here?
           props.value({
             name: "",
             email: "",
