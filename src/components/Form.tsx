@@ -1,11 +1,17 @@
 import React from "react";
 import { FormProps } from "../types";
+import { useNavigate } from 'react-router-dom';
 
 interface MyForm {
   value: (setInput: FormProps) => void;
 }
 
 function Form(props: MyForm) {
+  const navigate = useNavigate();
+  const submitClick = () => {
+    navigate('/list');
+  };
+
   return (
     <form>
       <label>
@@ -24,6 +30,7 @@ function Form(props: MyForm) {
         type="button" // type to prevent automatic reload
         onClick={() => {
           //pass prop values into llm here?
+          submitClick();
           props.value({
             name: "",
             email: "",
