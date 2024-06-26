@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import NavBar from "./components/NavBar";
 import { useState } from "react";
-import Form from "./components/Form";
+import Form from "./components/form";
 import ListPage from "./pages/listing";
+import Landing from "./pages/landing";
 
 function App() {
   const [userInput, setInput] = useState({
@@ -17,13 +17,11 @@ function App() {
     // Leisure Voyage Travel --> LVTravel
     <Router>
       <div className="App">
-        <h1 className="text-green-100 flex justify-center">LVTravel</h1>
-        <NavBar />
         <Routes>
-          <Route path="/" element={<Form value={setInput} />}> </Route>
           {/* <Route path="/list" element={<ListPage search={[]} />}></Route> */}
+          <Route path="/" element={<Landing></Landing>}></Route>
+          <Route path="/form" element={<Form value={setInput} />}></Route>
           <Route path="/list" element={<ListPage />}></Route>
-
         </Routes>
       </div>
     </Router>
