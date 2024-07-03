@@ -1,6 +1,4 @@
-import React from "react";
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
-import NavBar from "./components/NavBar";
 import { useState } from "react";
 import Form from "./components/form";
 import ListPage from "./pages/listing";
@@ -8,9 +6,10 @@ import Landing from "./pages/landing";
 
 function App() {
   const [userInput, setInput] = useState({
-    name: "",
-    email: "",
-    message: "",
+    starting_location: "",
+    ending_location: "",
+    duration: 0,
+    budget: 0
   });
 
   return (
@@ -22,7 +21,7 @@ function App() {
           {/* <Route path="/list" element={<ListPage search={[]} />}></Route> */}
           <Route path="/" element={<Landing></Landing>}></Route>
           <Route path="/form" element={<Form value={setInput} />}></Route>
-          <Route path="/list" element={<ListPage />}></Route>
+          <Route path="/list" element={<ListPage value={userInput} />}></Route>
         </Routes>
       </div>
     </Router>

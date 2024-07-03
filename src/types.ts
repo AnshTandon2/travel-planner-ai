@@ -1,9 +1,17 @@
-import React from "react";
-
-type FormProps = {
-  name: string;
-  email: string;
-  message: string;
+type parameters = {
+  starting_location: string;
+  ending_location: string;
+  duration: number;
+  budget: number;
 };
 
-export type { FormProps };
+type outputs = {
+  title: string;
+  subtitle: string;
+  locations: string[];
+  descriptions: string[];
+  times: number[];
+  costs: number[];
+};
+
+export type { parameters, outputs };
