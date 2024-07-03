@@ -3,7 +3,7 @@ const { AzureOpenAI } = require("openai");
 
 // You will need to set these environment variables or edit the following values
 const endpoint = "https://travel-app1.openai.azure.com/";
-const apiKey = process.env["AZURE_OPENAI_API_KEY"];
+const apiKey = process.env.REACT_APP_AZURE_OPENAI_API_KEY;
 console.log("Azure Api Key: " + apiKey);
 const apiVersion = "2024-04-01-preview";
 const deployment = "gpt-35-turbo"; //The deployment name for your completions API model. The instruct model is the only new model that supports the legacy API.
