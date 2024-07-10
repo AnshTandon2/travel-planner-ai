@@ -5,8 +5,8 @@ interface formData {
     value: Promise<string>;
 }
 
-
 function ListPage(props: formData) {
+    console.log(props.value); 
     const jsonPattern = /```(.+?)```/s;
     const match = (props.value as unknown as string).match(jsonPattern);
     const jslist: outputs[] = [];
@@ -15,14 +15,14 @@ function ListPage(props: formData) {
         const jsstr = match[1].trim();
         try {
             const itineraries = JSON.parse(jsstr);
-            for (let itinerary of itineraries) {
+            for (const key in itineraries) {
                 jslist.push({
-                    title: itinerary.title as string,
-                    subtitle: itinerary.subtitle as string,
-                    locations: itinerary.locations as string[],
-                    descriptions: itinerary.descriptions as string[],
-                    times: itinerary.times as number[],
-                    costs: itinerary.costs as number[] 
+                    title: itineraries[key].title as string,
+                    subtitle: itineraries[key].subtitle as string,
+                    locations: itineraries[key].locations as string[],
+                    descriptions: itineraries[key].descriptions as string[],
+                    times: itineraries[key].times as number[],
+                    costs: itineraries[key].costs as number[] 
                 })
             }
         } catch (e) {
@@ -32,7 +32,6 @@ function ListPage(props: formData) {
     else {
         console.log("No interpretation");
     }
-    console.log(props.value); 
     
     return (
         <div className="grid grid-cols-3 gap-4 h-full m-4">
