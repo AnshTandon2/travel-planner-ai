@@ -1,10 +1,10 @@
-import { parameters } from "../types";
+import pipeline from "../components/Pipeline";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import bg from "../assets/bg-2.png";
 
 interface formData {
-  value: (setInput: parameters) => void;
+  value: (setInput: Promise<string>) => void;
 }
 
 function Form(props: formData) {
@@ -35,13 +35,13 @@ function Form(props: formData) {
         </form>
         <button className="mt-4 w-full text-center text-slate-300 rounded-sm border-2 border-slate-300 p-2
         hover:border-pink-500 hover:text-pink-500 duration-500"
-          onClick={() => {
-            props.value({
+          onClick={async () => {
+            props.value(await pipeline({
               starting_location: slocation,
               ending_location: elocation,
               duration: duration,
               budget: budget
-            })
+            }));
             navigate("/list"); 
           }}
         >

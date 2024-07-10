@@ -1,16 +1,14 @@
-import { parameters, outputs } from '../types';
-import pipeline from "../components/Pipeline";
+import { outputs } from '../types';
 import Itinerary from '../components/itinerary';
 
 interface formData {
-    value: parameters;
+    value: Promise<string>;
 }
 
 
 function ListPage(props: formData) {
-    const str: Promise<string> = pipeline(props.value);
     const jsonPattern = /```(.+?)```/s;
-    const match = (str as unknown as string).match(jsonPattern);
+    const match = (props.value as unknown as string).match(jsonPattern);
     const jslist: outputs[] = [];
 
     if (match) {
@@ -34,7 +32,7 @@ function ListPage(props: formData) {
     else {
         console.log("No interpretation");
     }
-    console.log(str); 
+    console.log(props.value); 
     
     return (
         <div className="grid grid-cols-3 gap-4 h-full m-4">

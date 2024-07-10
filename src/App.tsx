@@ -5,12 +5,7 @@ import ListPage from "./pages/listing";
 import Landing from "./pages/landing";
 
 function App() {
-  const [userInput, setInput] = useState({
-    starting_location: "",
-    ending_location: "",
-    duration: 0,
-    budget: 0
-  });
+  const [userInput, setInput] = useState("" as unknown as Promise<string>);
 
   return (
     //you can only put your code inside the one div within any return you have and you can have multiple class names
@@ -40,7 +35,6 @@ function App() {
         </a>
       </header> */
   );
-  console.log(userInput);
 }
 
 export default App;
