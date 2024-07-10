@@ -22,13 +22,16 @@ async function pipeline(params: parameters) {
       and follow the given format:
 
       [
-        {
+        "Itinerary1" : {
           "title": string;
           "subtitle": string;
           "locations": string[];
           "descriptions": string[];
           "times (hrs)": number[];
           "costs ($)": number[];
+        },
+        "Itinerary2" : {
+          ...
         },
       ]
       
