@@ -4,7 +4,6 @@ const { AzureOpenAI } = require("openai");
 // You will need to set these environment variables or edit the following values
 const endpoint = "https://travel-app1.openai.azure.com/";
 const apiKey = process.env.REACT_APP_AZURE_OPENAI_API_KEY;
-console.log("Azure Api Key: " + apiKey);
 const apiVersion = "2024-04-01-preview";
 const deployment = "gpt-35-turbo"; //The deployment name for your completions API model. The instruct model is the only new model that supports the legacy API.
 
@@ -18,7 +17,7 @@ async function pipeline(params: parameters) {
       { role: "user", content: `I am a person looking to plan a vacation from ${params.starting_location} 
       to ${params.ending_location} for ${params.duration} days. Find activities that in total fall
       within ${params.budget} dollars`},
-      { role: "user", content: `Output itineraries in the form of a single list of JSON objects based on the information previously provided 
+      { role: "user", content: `Output a single list of JSON objects representing itineraries based on the information previously provided 
       and follow the given format:
 
       [
